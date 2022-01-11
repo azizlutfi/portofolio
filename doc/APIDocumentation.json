@@ -1,0 +1,778 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "API MX100",
+        "description": "API Documentation for API Application Freelancing Portal Application.",
+        "contact": {
+            "name": "Aziz Lutfi",
+            "email": "lutfiaziz999@gmail.com",
+            "url": "azizlutfi.com"
+        },
+        "version": "1.0"
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://mx100.herokuapp.com/api/v1"
+        }
+    ],
+    "paths": {
+        "/users/login": {
+            "post": {
+                "summary": "Login to get Access Token",
+                "description": "Login with email and password to get access token",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Freelancer": {
+                                    "description": "Contoh Login Freelancer",
+                                    "value": {
+                                        "email": "radityadika@domain.com",
+                                        "password": "StandUpComedy123"
+                                    }
+                                },
+                                "Company": {
+                                    "description": "Contoh Login Company",
+                                    "value": {
+                                        "email": "hr@pertamina.com",
+                                        "password": "Pertamax123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string"
+                                                },
+                                                "token_type": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Success",
+                                    "message": "User logged-in!",
+                                    "data": {
+                                        "token": "5|MJPeaeVhsm8BkP0jfJNWS1rJc0eDtJJhYoSBvZ7d",
+                                        "token_type": "Bearer",
+                                        "name": "Pertamina"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Login Fail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "These credentials do not match our records!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs": {
+            "get": {
+                "summary": "View Jobs",
+                "description": "View all published job only",
+                "responses": {
+                    "200": {
+                        "description": "Get data Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "company_id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "integer"
+                                                    },
+                                                    "due_date": {
+                                                        "type": "string",
+                                                        "format": "date"
+                                                    },
+                                                    "status": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Data Not NULL": {
+                                        "description": "Published Job Not Null",
+                                        "value": {
+                                            "status": "Success",
+                                            "message": "Jobs Data retrieved",
+                                            "data": [
+                                                {
+                                                    "id": 2,
+                                                    "company_id": 1,
+                                                    "name": "Logo Modification",
+                                                    "description": "Create new logo based on current logo",
+                                                    "price": "300.00",
+                                                    "due_date": "2022-01-03",
+                                                    "status": "published",
+                                                    "created_at": "2021-12-16T11:49:05.000000Z",
+                                                    "updated_at": "2021-12-16T11:49:05.000000Z"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "Data Null": {
+                                        "description": "No Job Published",
+                                        "value": {
+                                            "status": "Success",
+                                            "message": "Jobs Data retrieved",
+                                            "data": "Currently No Jobs Available."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create Job",
+                "description": "Create new Job. Job can be draft or publish. Only accessible for company user",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "due_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": ["draft", "published"],
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Create Draft": {
+                                    "description": "Create Job Draft",
+                                    "value": {
+                                        "name": "Logo Modification",
+                                        "description": "Create new logo based on current logo",
+                                        "price": "300",
+                                        "due_date": "2022-01-03",
+                                        "status": "draft"
+                                    }
+                                },
+                                "Create Published": {
+                                    "description": "Create Job Published",
+                                    "value": {
+                                        "name": "Input Data Job",
+                                        "description": "Input Data Job for data mining project",
+                                        "price": "15",
+                                        "due_date": "2021-12-20",
+                                        "status": "published"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Create Job Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Draft Created": {
+                                        "description": "Create Draft Job Post",
+                                        "value": {
+                                            "status": "Success",
+                                            "message": "Job Draft Created"
+                                        }
+                                    },
+                                    "Job Publish": {
+                                        "description": "Create Published Job Post",
+                                        "value": {
+                                            "status": "Success",
+                                            "message": "Jobs published"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Access Forbidden"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Save Failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Failed to Save"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/jobs/{job_id}/proposals": {
+            "get": {
+                "summary": "View proposal for specific Jobs",
+                "description": "View all proposal for specific job that specified in url search by id. Accessible only for company account that owner of job post",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "description": "Job id for filtering proposal",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get data Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "job_id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "freelancer_id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "bid_price": {
+                                                        "type": "integer"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Success",
+                                    "message": "Jobs Data retrieved",
+                                    "data": [
+                                        {
+                                            "id": 2,
+                                            "job_id": 2,
+                                            "freelancer_id": 2,
+                                            "bid_price": "400.00",
+                                            "created_at": "2021-12-16T13:08:14.000000Z",
+                                            "updated_at": "2021-12-16T13:08:14.000000Z"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Access Forbidden"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Job Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Job Not Found"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/jobs/{job_id}/publish": {
+            "put": {
+                "summary": "Publish Draft Job",
+                "description": "Publish existing draft job post. Update status of the job from draft to published. Accessible only for company account that owner of job post",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "description": "Job id that will published",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Draft Job Published",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Success",
+                                    "message": "Jobs published"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Access Forbidden"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Job Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Job Not Found"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Save Failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Failed to Published Job"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/proposals": {
+            "post": {
+                "summary": "Submit Proposal",
+                "description": "Submit new proposal for specific job post. Only accessible for freelancer account",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "job_id": {
+                                        "type": "integer",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "bid_price": {
+                                        "type": "number",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Example 1": {
+                                    "description": "Submit Proposal 1",
+                                    "value": {
+                                        "job_id": "1",
+                                        "bid_price": "400"
+                                    }
+                                },
+                                "Example 2": {
+                                    "description": "Submit Proposal 2",
+                                    "value": {
+                                        "job_id": "2",
+                                        "bid_price": "50"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Proposal submitted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Success",
+                                    "message": "Proposal Submitted"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Access Forbidden"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Job Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "status": "Error",
+                                    "message": "Job Not Found"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Save Failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Duplicate Proposal": {
+                                        "description": "Duplicate Submit Proposal",
+                                        "value": {
+                                            "status": "Error",
+                                            "message": "Duplicate Proposal Prohibited"
+                                        }
+                                    },
+                                    "Failed Submit Proposal": {
+                                        "description": "Error Submit Proposal",
+                                        "value": {
+                                            "status": "Error",
+                                            "message": "Failed to Submit Proposal"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    }
+}

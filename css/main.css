@@ -1,0 +1,615 @@
+/* Google Fonts */
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: #ffffff;
+}
+
+body .tulisan-light {
+  color: #fff;
+}
+
+body .tulisan-dark {
+  color: #000000;
+}
+
+body .contact {
+  display: inline-block;
+  width: 90%;
+  background-color: transparent;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255, 255, 255, 0.3)));
+}
+
+body .contact a {
+  text-decoration: none;
+}
+
+body .contact span {
+  display: block;
+  position: relative;
+  -webkit-transition: 0.3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-color: #272727;
+  color: #fff;
+  width: 100%;
+}
+
+body .contact span:after {
+  display: block;
+  content: attr(data-title);
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: 0.3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  -webkit-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+          transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+  color: #fff;
+  width: 100%;
+}
+
+body .contact:hover span {
+  -webkit-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+          transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+}
+
+body section {
+  width: 100vw;
+  min-height: 100vh;
+  scroll-snap-align: start;
+}
+
+body section:nth-of-type(1) {
+  background-color: #1239ba;
+  background-image: url(../media/wave-blue.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+body section:nth-of-type(2) {
+  background-color: #214fc6;
+}
+
+body section:nth-of-type(3) {
+  background-color: #e7eeed;
+}
+
+body section:nth-of-type(4) {
+  background-color: #fff;
+}
+
+body footer {
+  position: relative;
+  min-height: 30vh;
+  background-color: #262626;
+}
+
+body footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #262626;
+}
+
+body footer ul li a {
+  display: block;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+body footer ul li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+body footer .connect span {
+  background-color: #262626;
+}
+
+body footer .connect span:hover:nth-of-type(1) {
+  background-color: #555;
+}
+
+body footer .connect span:hover:nth-of-type(2) {
+  background-color: #0068b7;
+}
+
+#home .layouter {
+  width: 100%;
+  height: 100%;
+}
+
+#home .layouter .social a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#home .layouter .hero {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#home .layouter .hero h1 {
+  -webkit-transform: translateZ(20px);
+          transform: translateZ(20px);
+}
+
+#home .layouter .hero a {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+
+#home .layouter button {
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 2px solid #96ffca;
+}
+
+#home .layouter img {
+  width: 100vw;
+}
+
+#who .layouter {
+  width: 100%;
+  height: 100%;
+}
+
+#who .layouter .mini-title {
+  text-decoration: none;
+  position: relative;
+}
+
+#who .layouter .mini-title::after {
+  background: #96ffca;
+  position: absolute;
+  content: "";
+  height: 0.2em;
+  bottom: -0.7em;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 5em;
+}
+
+#who .layouter a {
+  color: inherit;
+}
+
+#what .layouter {
+  width: 100%;
+  height: 100%;
+}
+
+#what .layouter h2,
+#what .layouter h6 {
+  color: #1544c0;
+}
+
+#what .layouter h4 {
+  color: #000000;
+}
+
+#what .layouter .skill {
+  border: 1px solid #1f74fb;
+  height: 100%;
+  padding: 1.25rem 0.625rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 8px;
+  color: #191923;
+}
+
+#work {
+  /* Cards */
+  /* COLORS */
+}
+
+#work .layouter {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#work .layouter .mini-title {
+  color: #262626;
+  text-decoration: none;
+  position: relative;
+}
+
+#work .layouter .mini-title::after {
+  background: #01e4f8;
+  position: absolute;
+  content: "";
+  height: 0.2em;
+  bottom: -0.7em;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 10em;
+}
+
+#work .light {
+  background: #f3f5f7;
+}
+
+#work a,
+#work a:hover {
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+#work #pageHeaderTitle {
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+#work .postcard {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+          box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+}
+
+#work .postcard.light {
+  background-color: #e1e5ea;
+}
+
+#work .postcard .t-dark {
+  color: #18151f;
+}
+
+#work .postcard a {
+  color: inherit;
+}
+
+#work .postcard h1,
+#work .postcard .h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+#work .postcard .small {
+  font-size: 80%;
+}
+
+#work .postcard .postcard__title {
+  font-size: 1.75rem;
+}
+
+#work .postcard .postcard__img {
+  max-height: 130px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+
+#work .postcard .postcard__img_link {
+  display: contents;
+}
+
+#work .postcard .postcard__bar {
+  width: 50px;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #424242;
+  -webkit-transition: width 0.2s ease;
+  transition: width 0.2s ease;
+}
+
+#work .postcard .postcard__text {
+  padding: 1.5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#work .postcard .postcard__preview-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  height: 100%;
+}
+
+#work .postcard .postcard__tagbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  font-size: 14px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#work .postcard .postcard__tagbox .tag__item {
+  display: inline-block;
+  background: rgba(83, 83, 83, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+#work .postcard .postcard__tagbox .tag__item:hover {
+  background: rgba(83, 83, 83, 0.8);
+}
+
+#work .postcard:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(-70deg, #424242, transparent 50%);
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#work .postcard:hover .postcard__bar {
+  width: 100px;
+}
+
+@media screen and (min-width: 769px) {
+  #work .postcard {
+    -ms-flex-wrap: inherit;
+        flex-wrap: inherit;
+  }
+  #work .postcard .postcard__title {
+    font-size: 2rem;
+  }
+  #work .postcard .postcard__tagbox {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  #work .postcard .postcard__img {
+    max-width: 200px;
+    max-height: 80%;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+  #work .postcard .postcard__text {
+    padding: 3rem;
+    width: 100%;
+  }
+  #work .postcard .media.postcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #18151f;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+  #work .postcard:hover .postcard__img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  #work .postcard:nth-child(2n + 1) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #work .postcard:nth-child(2n + 0) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  #work .postcard:nth-child(2n + 1) .postcard__text::before {
+    left: -12px !important;
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  #work .postcard:nth-child(2n + 0) .postcard__text::before {
+    right: -12px !important;
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #work .postcard__text {
+    padding: 2rem 3.5rem;
+  }
+  #work .postcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+  #work .postcard.light .postcard__text:before {
+    background: #e1e5ea;
+  }
+}
+
+#work .postcard .postcard__tagbox .green.play:hover {
+  background: #79dd09;
+  color: black;
+}
+
+#work .green .postcard__title:hover {
+  color: #79dd09;
+}
+
+#work .green .postcard__bar {
+  background-color: #79dd09;
+}
+
+#work .green::before {
+  background-image: linear-gradient(-30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+
+#work .green:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+
+#work .postcard .postcard__tagbox .blue.play:hover {
+  background: #0076bd;
+}
+
+#work .blue .postcard__title:hover {
+  color: #0076bd;
+}
+
+#work .blue .postcard__bar {
+  background-color: #0076bd;
+}
+
+#work .blue::before {
+  background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+
+#work .blue:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+
+#work .postcard .postcard__tagbox .red.play:hover {
+  background: #bd150b;
+}
+
+#work .red .postcard__title:hover {
+  color: #bd150b;
+}
+
+#work .red .postcard__bar {
+  background-color: #bd150b;
+}
+
+#work .red::before {
+  background-image: linear-gradient(-30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+
+#work .red:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+
+#work .postcard .postcard__tagbox .yellow.play:hover {
+  background: #bdbb49;
+  color: black;
+}
+
+#work .yellow .postcard__title:hover {
+  color: #bdbb49;
+}
+
+#work .yellow .postcard__bar {
+  background-color: #bdbb49;
+}
+
+#work .yellow::before {
+  background-image: linear-gradient(-30deg, rgba(189, 187, 73, 0.1), transparent 50%);
+}
+
+#work .yellow:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(189, 187, 73, 0.1), transparent 50%);
+}
+
+@media screen and (min-width: 769px) {
+  #work .green::before {
+    background-image: linear-gradient(-80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  }
+  #work .green:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  }
+  #work .blue::before {
+    background-image: linear-gradient(-80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  }
+  #work .blue:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  }
+  #work .red::before {
+    background-image: linear-gradient(-80deg, rgba(189, 21, 11, 0.1), transparent 50%);
+  }
+  #work .red:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(189, 21, 11, 0.1), transparent 50%);
+  }
+  #work .yellow::before {
+    background-image: linear-gradient(-80deg, rgba(189, 187, 73, 0.1), transparent 50%);
+  }
+  #work .yellow:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.1), transparent 50%);
+  }
+}
+
+#modalContact .modal-body {
+  background-image: url(../media/wave.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+#modalContact .modal-body .mailing a.mail {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  padding: 2vh 3vw;
+  background: -webkit-gradient(linear, right top, left top, color-stop(50%, transparent), color-stop(50%, #0d6efd)) right;
+  background: linear-gradient(to left, transparent 50%, #0d6efd 50%) right;
+  background-size: 200%;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+#modalContact .modal-body .mailing a.mail:hover {
+  color: #ffffff;
+  background-position: left;
+}
+/*# sourceMappingURL=main.css.map */
